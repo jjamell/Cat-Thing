@@ -60,11 +60,11 @@ function GameObjectManager() {
 		//shit so you don't throw a thousand errors in the console
 		if (this.canvas.getContext)
 		{
-		this.context2D = this.canvas.getContext('webgl');
+		this.context2D = this.canvas.getContext('2d');
 		this.backBuffer = document.createElement('canvas');
 		this.backBuffer.width = this.canvas.width;
 		this.backBuffer.height = this.canvas.height;
-		this.backBufferContext2D = this.backBuffer.getContext('webgl');
+		this.backBufferContext2D = this.backBuffer.getContext('2d');
 		}
 
 		// create a new ApplicationManager
@@ -72,7 +72,11 @@ function GameObjectManager() {
 
 		/// setInterval to cal the draw function
 		setInterval(function() {
+			requestAnimationFrame(
+				function(){
 			g_GameObjectManager.draw();
+					
+				})
 		}, SECONDS_BETWEEN_FRAMES);
 
 		return this;

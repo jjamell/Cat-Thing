@@ -49,6 +49,7 @@ function AnimatedGameObject()
 	
 	this.draw = function(dt, context, xScroll, yScroll)
 	{
+		
 		var sourceX = this.frameWidth * this.currentFrame;
 		context.drawImage(this.image, sourceX, 0, this.frameWidth, this.image.height, this.x - xScroll, this.y - yScroll, this.frameWidth, this.image.height);
 		
