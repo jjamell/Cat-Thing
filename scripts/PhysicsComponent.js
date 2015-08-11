@@ -1,10 +1,10 @@
+/* global g_GameObjectManager, canvas  */
+
 function Physics(dt, context, xScroll, yScroll) {
 	this.x += dt * this.xSpeed * this.xDirection;
 	for (var x in g_GameObjectManager.gameObjects) {
 		if (g_GameObjectManager.gameObjects[x].collisionArea && this.id != g_GameObjectManager.gameObjects[x].id && this.zOrder == g_GameObjectManager.gameObjects[x].zOrder) {
-			//console.log("fuck")
 			if (this.collisionArea().intersects(g_GameObjectManager.gameObjects[x].collisionArea())) {
-				//console.log("SHIT")
 				this.snd.play();
 				this.xDirection = this.xDirection * -1;
 				this.x += dt * this.xSpeed * this.xDirection;
@@ -14,9 +14,7 @@ function Physics(dt, context, xScroll, yScroll) {
 	this.y += dt * this.ySpeed * this.yDirection;
 	for (var x in g_GameObjectManager.gameObjects) {
 		if (g_GameObjectManager.gameObjects[x].collisionArea && this.id != g_GameObjectManager.gameObjects[x].id) {
-			//console.log("fuck")
 			if (this.collisionArea().intersects(g_GameObjectManager.gameObjects[x].collisionArea())) {
-				//console.log("SHIT")
 				this.snd.play();
 				this.yDirection = this.yDirection * -1;
 				this.y += dt * this.ySpeed * this.yDirection;

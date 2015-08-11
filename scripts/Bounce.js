@@ -1,8 +1,5 @@
-/**
- * A test class to demonstrate the use of the VisualGameObject class
- * @author Jacob Jamell
- * @class
- */
+/* global VisualGameObject, Physics */
+
 function Bounce() {
 	this.xDirection = 1;
 	this.yDirection = 1;

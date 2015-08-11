@@ -1,3 +1,4 @@
+/* global GameObjectManager */
 var FPS = 60;
 var SECONDS_BETWEEN_FRAMES = 1000/FPS;
 var g_GameObjectManager = null;

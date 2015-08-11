@@ -1,28 +1,11 @@
-/**
- * A manager for all the objects in the game
- * @author Some other guy
- * @class
- */
+/* global g_GameObjectManager:true, FPS, SECONDS_BETWEEN_FRAMES, ApplicationManager, requestAnimationFrame */
+
 function GameObjectManager() {
-	/** an array of game objects
-	 * @type Array
-	 */
+	
 	this.gameObjects = new Array();
-	/** The time the last frame was rendered
-	 * @type Date
-	 */
 	this.lastFrame = new Date().getTime();
-	/** The global scrolling value of the x axis
-	 * @type Number
-	 */
 	this.xScroll = 0;
-	/** The global scrolling value of the y axis
-	 * @type Number
-	 */
 	this.yScroll = 0;
-	/** A reference to the ApplicationManager instance
-	 * @type ApplicationManager
-	 */
 	this.applicationManager = null;
 	/** A reference to the canvas element
 	 * @type HTMLCanvasElement
@@ -135,7 +118,7 @@ function GameObjectManager() {
 	//send keyDown event to all gameObjects
 	this.keyDown = function(event)
 	{
-		for (x in this.gameObjects)
+		for (var x in this.gameObjects)
 		{
 			if (this.gameObjects[x].keyDown)
 			{
@@ -147,7 +130,7 @@ function GameObjectManager() {
 	//send keyUp event to all gameObjects
 	this.keyUp = function(event)
 	{
-		for (x in this.gameObjects)
+		for (var x in this.gameObjects)
 		{
 			if (this.gameObjects[x].keyUp)
 			{
