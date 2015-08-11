@@ -96,14 +96,14 @@ function GameObjectManager() {
 		this.context2D.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
 		//first update all the game objects
-		for (x in this.gameObjects) {
+		for (var x in this.gameObjects) {
 			if (this.gameObjects[x].update) {
 				this.gameObjects[x].update(dt, this.backBufferContext2D, this.xScroll, this.yScroll);
 			}
 		}
 
 		//then draw the game objects
-		for (x in this.gameObjects) {
+		for (var x in this.gameObjects) {
 			if (this.gameObjects[x].draw) {
 				this.gameObjects[x].draw(dt, this.backBufferContext2D, this.xScroll, this.yScroll);
 			}
