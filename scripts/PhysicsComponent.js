@@ -10,13 +10,22 @@ function Physics(dt) {
 				//window.snd.play();
 				if(Math.abs(this.x - colliders[x].x) >= Math.abs(this.y - colliders[x].y))
 					{
-						this.xV *= -1; this.x += dt * this.xV;
+						this.xV 		= this.xV + colliders[x].xV;   //Add swap
+						colliders[x].xV	= this.xV - colliders[x].xV; 
+						this.xV 		= this.xV - colliders[x].xV;
+						
+						this.x += dt * this.xV / 2;
+						colliders[x].x += dt * colliders[x].x / 2;
 						//colliders[x].xV *= -1; 
 					}
 				if(Math.abs(this.x - colliders[x].x) <= Math.abs(this.y - colliders[x].y))
 					{
-						this.yV *= -1; this.y += dt * this.yV;
-						//colliders[x].yV *= -1;
+						this.yV 		= this.yV + colliders[x].yV;   //Add swap
+						colliders[x].yV	= this.yV - colliders[x].yV; 
+						this.yV 		= this.yV - colliders[x].yV;
+						
+						this.y += dt * this.yV / 2;
+						colliders[x].y += dt * colliders[x].yV /2;
 					}
 			}
 		}

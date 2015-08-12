@@ -22,7 +22,7 @@ function BounceSpawner() {
 	 * @param yScroll The global scrolling value of the y axis
 	 */
 	this.update = function() {
-
+		if (g_GameObjectManager.gameObjects.length > 100) return;
 		for (var x in g_GameObjectManager.gameObjects) {
 			if (g_GameObjectManager.gameObjects[x].collisionArea && this != g_GameObjectManager.gameObjects[x]) {
 				//console.log("fuck")

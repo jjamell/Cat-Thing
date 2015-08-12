@@ -1,8 +1,8 @@
 /* global VisualGameObject, Physics */
 
 function Bounce() {
-	this.xV = 50 + Math.random() * 100;
-	this.yV = 50 + Math.random() * 100;
+	this.xV = 50 + Math.random() * 200;
+	this.yV = 50 + Math.random() * 200;
 	/**
 	 * Initializes this object
 	 * @return A reference to the initialized object
