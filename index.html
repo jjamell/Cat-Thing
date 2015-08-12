@@ -12,15 +12,16 @@
         <script src="scripts/ApplicationManager.js"></script>
 		<script src="scripts/Player.js"></script>
         <script src="scripts/Bounce.js"></script>
+        <script type="text/javascript" src="scripts/BounceSpawner.js"></script>
         <script src="scripts/Level.js"></script>
         <script src="scripts/Rectangle.js"></script>
         <script src="scripts/PhysicsComponent.js"></script>
     </head>
     <body>
-        <canvas id="canvas"  width="400" height="300" style="border: 1px solid black;"></canvas>
+        <canvas id="canvas"  width="800" height="600" style="border: 1px solid black;"></canvas>
         <div>
         <p><strong>PRESS THIS BUTTON &darr;</strong></p>
-        <button onclick="new Bounce().startupBounce(g_image);">ADD MORE CATS</button>
+        <button onclick="new Bounce().startupBounce();">ADD MORE CATS</button>
         </div>
         
     </body>

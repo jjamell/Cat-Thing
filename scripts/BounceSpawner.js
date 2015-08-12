@@ -1,3 +1,4 @@
+/* global g_GameObjectManager, GameObject, Bounce, g_image */
 /**
  * Spawns bouncers when clear of obstacles.  Not visible.
  * @author Jacob Jamell
@@ -10,7 +11,7 @@ function BounceSpawner() {
 	 * @return A reference to the initialized object
 	 */
 	this.startupBounceSpawner = function(image) {
-		this.startupGameObject(0, 0, 1);
+		this.startupGameObject(0, 0, 20);
 		return this;
 	}
 	/**
@@ -20,18 +21,23 @@ function BounceSpawner() {
 	 * @param xScroll The global scrolling value of the x axis
 	 * @param yScroll The global scrolling value of the y axis
 	 */
-	this.update = function(dt, context, xScroll, yScroll) {
+	this.update = function() {
 
-		for (x in g_GameObjectManager.gameObjects) {
-			if (g_GameObjectManager.gameObjects[x].collisionArea && this.id != g_GameObjectManager.gameObjects[x].id) {
+		for (var x in g_GameObjectManager.gameObjects) {
+			if (g_GameObjectManager.gameObjects[x].collisionArea && this != g_GameObjectManager.gameObjects[x]) {
 				//console.log("fuck")
-				if (this.collisionArea().intersects(g_GameObjectManager.gameObjects[x].collisionArea())) {
-					console.log("SHIT");
-					new Bounce().startupBounce(g_image);
+				if (this.collisionArea().intersects( g_GameObjectManager.gameObjects[x].collisionArea() ) ) {
+					return;
 				}
 			}
 		}
+		new Bounce().startupBounce(g_image);
 
 	}
+	
+	this.collisionArea = function()
+	{
+		return new Rectangle().startupRectangle(this.x, this.y, 50, 50);
+	}
 };
-Bounce.prototype = new GameObject;
+BounceSpawner.prototype = new GameObject;
