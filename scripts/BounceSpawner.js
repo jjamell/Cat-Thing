@@ -10,7 +10,8 @@ function BounceSpawner() {
 	 * Initializes this object
 	 * @return A reference to the initialized object
 	 */
-	this.startupBounceSpawner = function(image) {
+	this.startupBounceSpawner = function(max) {
+		this.max = max;
 		this.startupGameObject(0, 0, 20);
 		return this;
 	}
@@ -22,7 +23,7 @@ function BounceSpawner() {
 	 * @param yScroll The global scrolling value of the y axis
 	 */
 	this.update = function() {
-		if (g_GameObjectManager.gameObjects.length > 100) return;
+		if (g_GameObjectManager.gameObjects.length > this.max) return;
 		for (var x in g_GameObjectManager.gameObjects) {
 			if (g_GameObjectManager.gameObjects[x].collisionArea && this != g_GameObjectManager.gameObjects[x]) {
 				//console.log("fuck")

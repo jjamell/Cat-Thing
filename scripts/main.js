@@ -17,5 +17,5 @@ function init()
 {
 	//start the game object manager and all objects under it
 	new GameObjectManager().startupGameObjectManager();
-	new BounceSpawner().startupBounceSpawner();
+	new BounceSpawner().startupBounceSpawner(25);
 }
