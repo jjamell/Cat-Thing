@@ -9,7 +9,7 @@ function Bounce() {
 	 */
 	this.startupBounce = function() {
 		var	image = new Image();
-		image.src = "http://lorempixel.com/50/50/cats/";
+		image.src = "http://lorempixel.com/50/50/cats/?"+(Math.floor(Math.random()*10));
 			this.startupVisualGameObject(image, 0, 0, 1);
 			return this;
 		}
